@@ -49,61 +49,61 @@ class BinaryTree(object):
                     break
 
 
-def InOrderTreeWalk(x):
+def in_order_tree_walk(x):
     if x!= None:
-       InOrderTreeWalk(x.left)
-       InOrderTreeWalk(x.right)
+       in_order_tree_walk(x.left)
+       in_order_tree_walk(x.right)
     return 0
 
 
-def InOrderGetArray(array, x):
+def in_order_get_array(array, x):
     if x!= None:
-       InOrderGetArray(array, x.left)
+       in_order_get_array(array, x.left)
        array.append(x.value)
-       InOrderGetArray(array, x.right)
+       in_order_get_array(array, x.right)
     return array
 
 
 position = -1
 
 
-def InOrderShearchTree(array, x):
+def in_order_shearch_tree(array, x):
     global position
     if x!= None:       
-       InOrderShearchTree(array, x.left)
+       in_order_shearch_tree(array, x.left)
        position += 1
        x.value = array[position]
-       InOrderShearchTree(array, x.right)
+       in_order_shearch_tree(array, x.right)
     return x
 
 
-def ListSum(array):
+def list_sum(array):
     s = 0
     for i in array:
         s+=i
     return s
 
 
-def SearchSum(x, tmp, s):
+def search_sum(x, tmp, s):
     if x!= None:
         tmp.append(x.value)
-        SearchSum(x.left, tmp, s)
-        if ListSum(tmp) == s: 
+        search_sum(x.left, tmp, s)
+        if list_sum(tmp) == s: 
             return None
-        SearchSum(x.right, tmp, s)
-        if ListSum(tmp) == s: 
+        search_sum(x.right, tmp, s)
+        if list_sum(tmp) == s: 
             return None
         tmp.pop()
 
 
-def GetSum(x, summ, s):
+def get_sum(x, summ, s):
     if x!=None:  
-      GetSum(x.left, summ, s)
+      get_sum(x.left, summ, s)
       tmp=[]
       SearchSum(x, tmp, s)
       if tmp:
               summ.append(tmp)
-      GetSum(x.right, summ, s)
+      get_sum(x.right, summ, s)
     
 def main():
     print ("s:")
